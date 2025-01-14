@@ -9,7 +9,7 @@ public class Token {
 
     @Override
     public String toString() {
-        return "%s".formatted(tag);
+        return "%c".formatted(tag);
     }
 
     public int tag() {
