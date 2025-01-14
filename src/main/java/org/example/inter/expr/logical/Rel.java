@@ -17,7 +17,8 @@ public class Rel extends Logical {
         emitJump("%s %s %s".formatted(a, this.token(), b), labelTrue, labelFalse);
     }
 
-    private Type check(Type type1, Type type2) {
+    @Override
+    public Type check(Type type1, Type type2) {
         if (type1 instanceof Array || type2 instanceof Array) return null;
         else if (type1 == type2) return Type.BOOL;
         else return null;

@@ -37,7 +37,7 @@ public class Logical extends Expr {
         return temp;
     }
 
-    private Type check(Type type1, Type type2) {
+    public Type check(Type type1, Type type2) {
         if (type1 == Type.BOOL && type2 == Type.BOOL) return Type.BOOL;
         else return null;
     }
