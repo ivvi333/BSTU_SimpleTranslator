@@ -10,7 +10,7 @@ import java.util.Map;
 public class Lexer {
     // Входной поток для исходного кода
     private final InputStream inputStream;
-    private int line = 1;
+    private static int line = 1;
     private char peek = ' ';
     private final Map<String, Word> words = new HashMap<>(Map.ofEntries(
             Map.entry(Word.IF.lexeme(), Word.IF),
@@ -118,7 +118,7 @@ public class Lexer {
         return token;
     }
 
-    public int line() {
+    public static int line() {
         return line;
     }
 

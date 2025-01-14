@@ -4,11 +4,10 @@ import org.example.lexer.Token;
 import org.example.symbols.Type;
 
 public class Expr extends Node {
-    private final Token token;
-    private final Type type;
+    protected final Token token;
+    protected Type type;
 
-    public Expr(int sourceLine, Token token, Type type) {
-        super(sourceLine);
+    public Expr(Token token, Type type) {
         this.token = token;
         this.type = type;
     }

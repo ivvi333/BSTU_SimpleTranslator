@@ -1,5 +1,7 @@
 package org.example.inter;
 
+import org.example.lexer.Lexer;
+
 import java.io.PrintStream;
 
 public class Node {
@@ -8,8 +10,8 @@ public class Node {
     private final int sourceLine;
     private static int labelCount = 0;
 
-    public Node(int sourceLine) {
-        this.sourceLine = sourceLine;
+    public Node() {
+        this.sourceLine = Lexer.line();
     }
 
     public int newLabel() {
