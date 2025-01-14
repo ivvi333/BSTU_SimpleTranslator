@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Lexer {
+    // Входной поток для исходного кода
     private final InputStream inputStream;
     private int line = 1;
     private char peek = ' ';
