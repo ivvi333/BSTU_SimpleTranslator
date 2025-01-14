@@ -1,5 +1,7 @@
 package org.example.lexer;
 
+import org.example.symbols.Type;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -16,7 +18,11 @@ public class Lexer {
             Map.entry(Word.DO.lexeme(), Word.DO),
             Map.entry(Word.BREAK.lexeme(), Word.BREAK),
             Map.entry(Word.TRUE.lexeme(), Word.TRUE),
-            Map.entry(Word.FALSE.lexeme(), Word.FALSE)
+            Map.entry(Word.FALSE.lexeme(), Word.FALSE),
+            Map.entry(Type.INT.lexeme(), Type.INT),
+            Map.entry(Type.FLOAT.lexeme(), Type.FLOAT),
+            Map.entry(Type.CHAR.lexeme(), Type.CHAR),
+            Map.entry(Type.BOOL.lexeme(), Type.BOOL)
     ));
 
     public Lexer(InputStream inputStream) {
