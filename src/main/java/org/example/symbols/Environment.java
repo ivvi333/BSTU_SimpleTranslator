@@ -1,16 +1,16 @@
 package org.example.symbols;
 
-import org.example.inter.Id;
+import org.example.inter.expr.Id;
 import org.example.lexer.Token;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Env {
+public class Environment {
     private final Map<Token, Id> table = new HashMap<>();
-    protected final Env previous;
+    protected final Environment previous;
 
-    public Env(Env previous) {
+    public Environment(Environment previous) {
         this.previous = previous;
     }
 
@@ -19,8 +19,8 @@ public class Env {
     }
 
     public Id get(Token token) {
-        for (Env env = this; env != null; env = env.previous) {
-            Id found = env.table.get(token);
+        for (Environment environment = this; environment != null; environment = environment.previous) {
+            Id found = environment.table.get(token);
             if (found != null) return found;
         }
         return null;

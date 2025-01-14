@@ -1,5 +1,6 @@
-package org.example.inter;
+package org.example.inter.expr.logical;
 
+import org.example.inter.expr.Expr;
 import org.example.lexer.Token;
 
 public class Not extends Logical {
@@ -9,7 +10,7 @@ public class Not extends Logical {
 
     @Override
     public String toString() {
-        return "%s %s".formatted(token, expr2);
+        return "%s %s".formatted(this.token(), expr2);
     }
 
     @Override

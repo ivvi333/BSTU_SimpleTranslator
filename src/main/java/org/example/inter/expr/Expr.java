@@ -1,11 +1,12 @@
-package org.example.inter;
+package org.example.inter.expr;
 
+import org.example.inter.Node;
 import org.example.lexer.Token;
 import org.example.symbols.Type;
 
 public class Expr extends Node {
-    protected final Token token;
-    protected Type type;
+    private final Token token;
+    private Type type;
 
     public Expr(Token token, Type type) {
         this.token = token;
@@ -42,5 +43,17 @@ public class Expr extends Node {
         else if (labelFalse != 0) {
             emit("iffalse %s goto L%d".formatted(condition, labelFalse));
         }
+    }
+
+    public Token token() {
+        return token;
+    }
+
+    public Type type() {
+        return type;
+    }
+
+    protected void setType(Type type) {
+        this.type = type;
     }
 }

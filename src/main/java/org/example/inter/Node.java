@@ -26,7 +26,7 @@ public class Node {
         printStream.printf("\t%s%n", line);
     }
 
-    protected void error(String message) {
+    public void error(String message) {
         throw new RuntimeException("near line %d: %s".formatted(sourceLine, message));
     }
 }

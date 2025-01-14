@@ -1,5 +1,7 @@
-package org.example.inter;
+package org.example.inter.expr.logical;
 
+import org.example.inter.expr.Expr;
+import org.example.inter.expr.Temp;
 import org.example.lexer.Token;
 import org.example.symbols.Type;
 
@@ -11,21 +13,21 @@ public class Logical extends Expr {
         super(token, null);
         this.expr1 = expr1;
         this.expr2 = expr2;
-        this.type = check(expr1.type, expr2.type);
-        if (type == null) {
+        this.setType(check(expr1.type(), expr2.type()));
+        if (this.type() == null) {
             error("Type error!");
         }
     }
 
     @Override
     public String toString() {
-        return "%s %s %s".formatted(expr1, token, expr2);
+        return "%s %s %s".formatted(expr1, this.token(), expr2);
     }
 
     @Override
     public Expr gen() {
         int f = newLabel(); int a = newLabel();
-        Temp temp = new Temp(type);
+        Temp temp = new Temp(this.type());
         jump(0, f);
         emit("%s = true".formatted(temp));
         emit("goto L%d".formatted(a));

@@ -1,5 +1,7 @@
-package org.example.inter;
+package org.example.inter.expr.op;
 
+import org.example.inter.expr.Expr;
+import org.example.inter.expr.Id;
 import org.example.lexer.Tag;
 import org.example.lexer.Word;
 import org.example.symbols.Type;
@@ -21,11 +23,19 @@ public class Access extends Op {
 
     @Override
     public Expr gen() {
-        return new Access(array, index.reduce(), type);
+        return new Access(array, index.reduce(), this.type());
     }
 
     @Override
     public void jump(int labelTrue, int labelFalse) {
         emitJump(reduce().toString(), labelTrue, labelFalse);
+    }
+
+    public Id array() {
+        return array;
+    }
+
+    public Expr index() {
+        return index;
     }
 }

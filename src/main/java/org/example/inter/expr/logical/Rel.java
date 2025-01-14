@@ -1,5 +1,6 @@
-package org.example.inter;
+package org.example.inter.expr.logical;
 
+import org.example.inter.expr.Expr;
 import org.example.lexer.Token;
 import org.example.symbols.Array;
 import org.example.symbols.Type;
@@ -13,7 +14,7 @@ public class Rel extends Logical {
     public void jump(int labelTrue, int labelFalse) {
         Expr a = expr1.reduce();
         Expr b = expr2.reduce();
-        emitJump("%s %s %s".formatted(a, token, b), labelTrue, labelFalse);
+        emitJump("%s %s %s".formatted(a, this.token(), b), labelTrue, labelFalse);
     }
 
     private Type check(Type type1, Type type2) {

@@ -1,4 +1,4 @@
-package org.example.inter;
+package org.example.inter.expr;
 
 import org.example.lexer.Num;
 import org.example.lexer.Token;

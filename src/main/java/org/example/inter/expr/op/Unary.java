@@ -1,5 +1,6 @@
-package org.example.inter;
+package org.example.inter.expr.op;
 
+import org.example.inter.expr.Expr;
 import org.example.lexer.Token;
 import org.example.symbols.Type;
 
@@ -9,19 +10,19 @@ public class Unary extends Op {
     public Unary(Token token, Expr expr) {
         super(token, null);
         this.expr = expr;
-        this.type = Type.max(Type.INT, expr.type);
-        if (type == null) {
+        this.setType(Type.max(Type.INT, expr.type()));
+        if (this.type() == null) {
             error("Type error!");
         }
     }
 
     @Override
     public String toString() {
-        return "%s %s".formatted(token, expr);
+        return "%s %s".formatted(this.token(), expr);
     }
 
     @Override
     public Expr gen() {
-        return new Unary(token, expr.reduce());
+        return new Unary(this.token(), expr.reduce());
     }
 }

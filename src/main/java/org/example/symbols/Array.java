@@ -16,4 +16,8 @@ public class Array extends Type {
         this.type = type;
         this.size = size;
     }
+
+    public Type type() {
+        return type;
+    }
 }
